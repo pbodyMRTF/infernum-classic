@@ -77,7 +77,7 @@ public class MainMenuScreen implements Screen {
         }
         this.font.setColor(0.7f, 0.7f, 0.7f, this.menuAlpha * 0.6f);
         this.font.getData().setScale(0.7f);
-        this.font.draw(this.batch, "powered by LibGDX and LWJGL", 10.0f, 30.0f);
+        this.font.draw(this.batch, "powered by LibGDX and LWJGL | " + Jgame.Version , 10.0f, 20.0f);
         this.font.getData().setScale(1.0f);
         this.batch.end();
         handleInput();

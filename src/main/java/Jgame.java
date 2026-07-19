@@ -14,6 +14,7 @@ public class Jgame extends Game {
     float renk1;
     float renk2;
     float renk3;
+    public static String Version;
 
     @Override // com.badlogic.gdx.ApplicationListener
     public void create() {
@@ -22,6 +23,7 @@ public class Jgame extends Game {
         this.renk3 = this.rnd.nextFloat();
         createFont();
         setScreen(new LoadingScreen(this));
+        Version = "Classic 1.0(infernum beta1.2.1)";
     }
 
     private void createFont() {
@@ -30,7 +32,7 @@ public class Jgame extends Game {
         param.size = 32;
         param.minFilter = Texture.TextureFilter.Linear;
         param.magFilter = Texture.TextureFilter.Linear;
-        param.characters = "abcçdefgğhıijklmnoöprsştuüvwxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWXYZ0123456789.,:;!?()[]{}+-*/'\" #<>";
+        param.characters = "abcçdefgğhıijklmnoöprsştuüvwxyzABCÇDEFGĞHIİJKLMNOÖPRSŞTUÜVWXYZ0123456789.,:;!?()[]{}+-*/'|\" #<>";
         this.font = generator.generateFont(param);
         this.font.getData().setScale(1.0f);
         generator.dispose();
