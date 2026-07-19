@@ -59,14 +59,14 @@ public class MainMenuScreen implements Screen {
         this.batch.begin();
         this.font.getData().setScale(2.3f + (this.titleScale * 0.1f));
         this.font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
-        this.font.draw(this.batch, this.titleText, (w / 2.0f) - 200.0f, h / 2.0f);
+        this.font.draw(this.batch, this.titleText, (w / 2.0f) - 250.0f, h / 2.0f);
         this.font.getData().setScale(1.0f);
         this.font.setColor(1.0f, 1.0f, 1.0f, this.menuAlpha);
         if (this.selectedOption == 0) {
             this.font.setColor(1.0f, 1.0f, 0.0f, this.menuAlpha * this.selectionBlink);
-            this.font.draw(this.batch, "> Başlat <", (w / 2.0f) - 475.0f, h / 2.0f);
+            this.font.draw(this.batch, "> Start <", (w / 2.0f) - 475.0f, h / 2.0f);
         } else {
-            this.font.draw(this.batch, "  Başlat", (w / 2.0f) - 475.0f, h / 2.0f);
+            this.font.draw(this.batch, "  Start", (w / 2.0f) - 475.0f, h / 2.0f);
         }
         this.font.setColor(1.0f, 1.0f, 1.0f, this.menuAlpha);
         if (this.selectedOption == 1) {
