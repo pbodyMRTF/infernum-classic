@@ -11,12 +11,9 @@ public class Jgame extends Game {
     public Camera camera;
     public BitmapFont font;
     Random rnd = new Random();
-    int skinplayer = this.rnd.nextInt(10) + 1;
-    int musicpatlar = this.rnd.nextInt(8) + 1;
     float renk1;
     float renk2;
     float renk3;
-    float kathiz;
 
     @Override // com.badlogic.gdx.ApplicationListener
     public void create() {
