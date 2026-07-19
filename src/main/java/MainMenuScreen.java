@@ -32,7 +32,7 @@ public class MainMenuScreen implements Screen {
         this.game = game;
         this.font = game.font;
         new Random();
-        this.titleText = "Flappy Bird 3";
+        this.titleText = "Infernum: Classic";
         initParticles();
     }
 
