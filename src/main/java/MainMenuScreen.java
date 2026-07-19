@@ -32,7 +32,7 @@ public class MainMenuScreen implements Screen {
         this.game = game;
         this.font = game.font;
         new Random();
-        this.titleText = "Infernum: Classic";
+        this.titleText = "    Infernum:\n Classic Edition";
         initParticles();
     }
 
@@ -59,7 +59,7 @@ public class MainMenuScreen implements Screen {
         this.batch.begin();
         this.font.getData().setScale(2.3f + (this.titleScale * 0.1f));
         this.font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
-        this.font.draw(this.batch, this.titleText, (w / 2.0f) - 250.0f, h / 2.0f);
+        this.font.draw(this.batch, this.titleText, (w / 2.0f) - 300f, h / 2.0f + 50);
         this.font.getData().setScale(1.0f);
         this.font.setColor(1.0f, 1.0f, 1.0f, this.menuAlpha);
         if (this.selectedOption == 0) {
