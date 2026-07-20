@@ -61,6 +61,7 @@ public class MainMenuScreen implements Screen {
         int w = Gdx.graphics.getWidth();
         int h = Gdx.graphics.getHeight();
         drawDecorations(w, h);
+        drawParticles(delta);
         this.batch.begin();
         this.font.getData().setScale(2.3f + (this.titleScale * 0.1f));
         this.font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
