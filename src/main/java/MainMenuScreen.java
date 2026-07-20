@@ -124,24 +124,27 @@ public class MainMenuScreen implements Screen {
     }
 
     private void handleInput() {
-        if (Gdx.input.isKeyJustPressed(19) || Gdx.input.isKeyJustPressed(51)) {
-            this.selectedOption = ((this.selectedOption - 1) + 2) % 2;
+        boolean up = Gdx.input.isKeyJustPressed(Input.Keys.UP) || Gdx.input.isKeyJustPressed(Input.Keys.W);
+        boolean down = Gdx.input.isKeyJustPressed(Input.Keys.DOWN) || Gdx.input.isKeyJustPressed(Input.Keys.S);
+        if (up || down) {
+            selectedOption = (selectedOption + 1) % 2;
         }
-        if (Gdx.input.isKeyJustPressed(20) || Gdx.input.isKeyJustPressed(47)) {
-            this.selectedOption = (this.selectedOption + 1) % 2;
-        }
-        if (Gdx.input.isKeyJustPressed(62) || Gdx.input.isKeyJustPressed(66)) {
-            if (this.selectedOption == 0) {
-                this.game.setScreen(new GameScreen(this.game));
+
+        boolean confirm = Gdx.input.isKeyJustPressed(Input.Keys.ENTER) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE);
+        if (confirm) {
+            if (selectedOption == 0) {
+                game.setScreen(new GameScreen(game));
                 dispose();
             } else {
                 Gdx.app.exit();
             }
         }
-        if (Gdx.input.isKeyPressed(45) || Gdx.input.isKeyPressed(111)) {
+
+        boolean quit = Gdx.input.isKeyPressed(Input.Keys.ESCAPE) || Gdx.input.isKeyPressed(Input.Keys.BACK);
+        if (quit) {
             Gdx.app.exit();
         }
-    }
+    } 
 
     @Override // com.badlogic.gdx.Screen
     public void show() {
