@@ -12,7 +12,7 @@ class Bullet {
     float speed = 500.0f;
     boolean dead = false;
     int bounceCount = 0;
-    int maxBounces = 3;
+    int maxBounces = 5;
 
     Bullet(float x, float y, float angleDeg) {
         this.x = x - 4.0f;
