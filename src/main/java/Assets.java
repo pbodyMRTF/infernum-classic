@@ -15,6 +15,8 @@ public class Assets {
         public static final String SHOOT = "sfx/shot.mp3";
         public static final String POP = "sfx/pop.mp3";
         public static final String WOOD = "sfx/wood.mp3";
+        public static final String CONFIRM = "sfx/confirm.ogg";
+        public static final String SELECT = "sfx/select.ogg";
     }
 
     
@@ -44,6 +46,8 @@ public class Assets {
         manager.load(Sounds.SHOOT, Sound.class);
         manager.load(Sounds.POP, Sound.class);
         manager.load(Sounds.WOOD, Sound.class);
+        manager.load(Sounds.CONFIRM, Sound.class);
+        manager.load(Sounds.SELECT, Sound.class);
     }
 
     public static boolean update() {

@@ -1,7 +1,7 @@
-
-
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -28,12 +28,17 @@ public class MainMenuScreen implements Screen {
     SpriteBatch batch = new SpriteBatch();
     ShapeRenderer shapeRenderer = new ShapeRenderer();
 
+
+    private Sound selectSound;
+    private Sound confirmSound;
+
     public MainMenuScreen(Jgame game) {
         this.game = game;
         this.font = game.font;
         new Random();
         this.titleText = "    Infernum:\n Classic Edition";
         initParticles();
+        loadAssets();
     }
 
     private void initParticles() {
@@ -82,6 +87,10 @@ public class MainMenuScreen implements Screen {
         this.batch.end();
         handleInput();
     }
+    private void loadAssets(){
+        this.selectSound = Assets.getSound(Assets.Sounds.SELECT);
+        this.confirmSound = Assets.getSound(Assets.Sounds.CONFIRM);
+    }
 
     private void updateAnimations(float delta) {
         this.titlePulse += delta * 3.0f;
@@ -128,10 +137,12 @@ public class MainMenuScreen implements Screen {
         boolean down = Gdx.input.isKeyJustPressed(Input.Keys.DOWN) || Gdx.input.isKeyJustPressed(Input.Keys.S);
         if (up || down) {
             selectedOption = (selectedOption + 1) % 2;
+            selectSound.play();
         }
 
         boolean confirm = Gdx.input.isKeyJustPressed(Input.Keys.ENTER) || Gdx.input.isKeyJustPressed(Input.Keys.SPACE);
         if (confirm) {
+            confirmSound.play();
             if (selectedOption == 0) {
                 game.setScreen(new GameScreen(game));
                 dispose();
@@ -144,7 +155,7 @@ public class MainMenuScreen implements Screen {
         if (quit) {
             Gdx.app.exit();
         }
-    } 
+    }
 
     @Override // com.badlogic.gdx.Screen
     public void show() {
