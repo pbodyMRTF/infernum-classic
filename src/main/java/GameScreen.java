@@ -50,6 +50,8 @@ public class GameScreen implements Screen {
     private SpriteBatch batch = new SpriteBatch();
     private GameTickManager tickManager = new GameTickManager();
 
+    private boolean switchingScreen = false;
+
     public GameScreen(Jgame game) {
         this.game = game;
         this.renk1 = game.renk1;
@@ -114,7 +116,11 @@ public class GameScreen implements Screen {
 
     private void checkAndStopTimers(int currentTick) {
         if (this.deathTimer.isRunning() && this.deathTimer.isFinished(currentTick)) {
-            Gdx.app.exit();
+            this.deathTimer.stop();
+            this.switchingScreen = true;
+            this.game.setScreen(new DeathScreen(this.game, this.score));
+            dispose();
+            return;
         }
         if (this.slowdownTimer.isRunning() && this.slowdownTimer.isFinished(currentTick)) {
             this.player.resetSpeed();
@@ -147,9 +153,12 @@ public class GameScreen implements Screen {
         }
     }
 
-    @Override // com.badlogic.gdx.Screen
+    @Override
     public void render(float delta) {
         this.tickManager.update(delta);
+        if (this.switchingScreen) {
+            return;
+        }
         if (Gdx.input.isKeyPressed(45)) {
             Gdx.app.exit();
         }
@@ -344,7 +353,7 @@ public class GameScreen implements Screen {
         this.font.getData().setScale(0.6f);
 
         this.font.getData().setScale(0.9f);
-        this.font.draw(this.batch, "Skor " + this.score, 512.0f, h - 730.0f);
+        this.font.draw(this.batch, "Score " + this.score, 512.0f, h - 730.0f);
         this.font.getData().setScale(1.0f);
     }
 
