@@ -242,7 +242,6 @@ public class GameScreen implements Screen {
                         this.popSound.play(0.7f);
                         this.score++;
                         e.dead = true;
-                        b.dead = true;
                     }
                 }
             }
