@@ -37,8 +37,8 @@ public class GameScreen implements Screen {
     private Array<Enemy> enemies = new Array<>();
     private Array<BloodParticle> bloods = new Array<>();
     private int lastSpawnTick = 0;
-    private float baseSpawnInterval = 3.0f;
-    private float minSpawnInterval = 0.3f;
+    private float baseSpawnInterval = 1.0f;
+    private float minSpawnInterval = 0.1f;
     private int shootCooldownTicks = 16;
     private int hitCooldownTicks = 16;
     private int slowdownTicks = 40;
