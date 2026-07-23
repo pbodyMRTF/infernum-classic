@@ -1,4 +1,5 @@
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 
 import com.badlogic.gdx.audio.Sound;
@@ -157,6 +158,10 @@ public class GameScreen implements Screen {
     public void render(float delta) {
         this.tickManager.update(delta);
         if (this.switchingScreen) {
+            return;
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            this.game.setScreen(new PauseScreen(this.game, this));
             return;
         }
         if (Gdx.input.isKeyPressed(45)) {
@@ -346,7 +351,7 @@ public class GameScreen implements Screen {
         if (this.isSlowed) {
             this.font.getData().setScale(0.8f);
             float remaining = this.slowdownTimer.getRemainingSeconds(this.tickManager.getCurrentTick());
-            this.font.draw(this.batch, "Yavaşlatıldı! " + String.format("%.1f", Float.valueOf(remaining)), 512.0f, h - 20.0f);
+            this.font.draw(this.batch, "Slowed Down! " + String.format("%.1f", Float.valueOf(remaining)), 512.0f, h - 20.0f);
             this.font.getData().setScale(1.0f);
         }
         this.font.getData().setScale(0.6f);
