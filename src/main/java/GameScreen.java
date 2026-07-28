@@ -362,11 +362,11 @@ public class GameScreen implements Screen {
     }
 
     private void renderHearts(float w, float h) {
-        float startY = h - 29.0f;
+        float startY = h - 58.0f;
         int i = 0;
         while (i < 3) {
             Texture heart = i < this.player.getHp() ? this.heartTex : this.heartEmptyTex;
-            this.batch.draw(heart, 20.0f + (i * (32.0f + 5.0f)), startY, 32.0f, 32.0f);
+            this.batch.draw(heart, 20.0f + (i * (64.0f + 5.0f)), startY, 64.0f, 64.0f);
             i++;
         }
     }
